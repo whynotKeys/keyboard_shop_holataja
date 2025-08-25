@@ -1,4 +1,4 @@
-import { CartTotalCost } from '@/types/cart';
+import type { CartTotalCost } from '@/types/cart';
 
 //서버에서 보내는 에러 타입
 export interface ServerValidationError {

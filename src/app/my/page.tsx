@@ -1,13 +1,15 @@
-import Tab, { TabItem } from '@/components/Tab';
-import { Title } from '@/components/Typography';
-import OrderTab from '@/app/my/components/OrderTab';
-import BookmarkTab from '@/app/my/components/BookmarkTab';
-import QnATab from '@/app/my/components/QnATab';
-import ReviewTab from '@/app/my/components/ReviewTab';
-import UserInfo from './components/UserInfo';
-import { getOrderList } from '@/data/functions/order';
-import { getBookmarkList } from '@/data/functions/bookmark';
 import { Metadata } from 'next';
+
+import Tab, { TabItem } from '@/components/ui/Tab';
+import { Title } from '@/components/ui/Typography';
+import { getBookmarkList } from '@/lib/api/bookmark';
+import { getOrderList } from '@/lib/api/order';
+
+import BookmarkTab from './_components/BookmarkTab';
+import OrderTab from './_components/OrderTab';
+import QnATab from './_components/QnATab';
+import ReviewTab from './_components/ReviewTab';
+import UserInfo from './_components/UserInfo';
 
 export const metadata: Metadata = {
   title: '마이페이지 - HOLATAJA',

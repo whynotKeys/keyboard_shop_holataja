@@ -1,8 +1,10 @@
-import { cookies } from 'next/headers';
-import getCartList from '@/data/functions/carts';
-import CartContainer from './components/CartContainer';
-import { CartResponse } from '@/types/cart';
 import { Metadata } from 'next';
+import { cookies } from 'next/headers';
+
+import getCartList from '@/lib/api/carts';
+import type { CartResponse } from '@/types/cart';
+
+import CartContainer from './_components/CartContainer';
 
 export const metadata: Metadata = {
   title: '장바구니 - HOLATAJA',

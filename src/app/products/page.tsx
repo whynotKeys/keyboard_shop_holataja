@@ -1,8 +1,9 @@
-import Carousel from '@/components/Carousel';
-import { Title } from '@/components/Typography';
-import { Product } from '@/types/product';
-import { getProductList } from '@/data/functions/product';
-import ProductList from '@/app/products/components/ProductList';
+import { Title } from '@/components/ui/Typography';
+import { getProductList } from '@/lib/api/product';
+import type { Product } from '@/types/product';
+
+import Carousel from './_components/Carousel';
+import ProductList from './_components/ProductList';
 
 export default async function ProductPage() {
   // 상품 목록 데이터 불러오기

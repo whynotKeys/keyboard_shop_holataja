@@ -1,24 +1,24 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
+
 import { Search, ShoppingCart, Star, ThumbsDown, ThumbsUp, User } from 'lucide-react';
 
-import Button from '@/components/Button';
-import CheckboxButton from '@/components/CheckboxButton';
-import SoundToggle from '@/components/SoundToggle';
-import Select from '@/components/Select';
-import Tab, { TabItem } from '@/components/Tab';
-import { Contents, ContentsTitle, SubTitle, Title } from '@/components/Typography';
-// import PaymentRadio from '@/components/PaymentRadio';
-import Image from 'next/image';
-import Textarea from '@/components/Textarea';
-import Input from '@/components/Input';
-import QuantityCount from '@/components/QuantityCount';
-import Modal from '@/components/Modal';
-import OrderedCard from '@/components/OrderdCard';
-import ProductCard from '@/components/ProductCard';
-import ReviewCard from '@/components/ReviewCard';
-import Pagination from '@/components/Pagination';
+import Button from '@/components/ui/Button';
+import CheckboxButton from '@/components/ui/CheckboxButton';
+import SoundToggle from '@/app/products/[id]/_components/SoundToggle';
+import Select from '@/components/ui/Select';
+import Tab, { TabItem } from '@/components/ui/Tab';
+import { Contents, ContentsTitle, SubTitle, Title } from '@/components/ui/Typography';
+import Textarea from '@/components/ui/Textarea';
+import Input from '@/components/ui/Input';
+import QuantityCount from '@/components/ui/QuantityCount';
+import Modal from '@/components/ui/Modal';
+import OrderCard from '@/app/my/[id]/_components/OrderCard';
+import ProductCard from '@/features/product/components/ProductCard';
+import ReviewCard from '@/features/review/components/ReviewCard';
+import Pagination from '@/components/ui/Pagination';
 
 // Button Component Options
 const sizes = ['full', 'large', 'medium', 'small'] as const;
@@ -53,45 +53,45 @@ const selectOptions = ['Option A', 'Option B', 'Option C'];
 function BaseElementsTab() {
   return (
     <section className="p-6 space-y-6">
-      <h3 className="text-lg font-semibold mb-3">Icons</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col gap-3 items-center">
+      <h3 className="mb-3 text-lg font-semibold">Icons</h3>
+      <div className="flex flex-col items-center w-full gap-3 p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
         {/* <Icons /> */}
         <div>
           <ShoppingCart className="inline mr-3" />
-          <ShoppingCart className="text-primary inline" />
+          <ShoppingCart className="inline text-primary" />
         </div>
         <div>
           <User className="inline mr-3" />
-          <User className="text-primary inline" />
+          <User className="inline text-primary" />
         </div>
         <div>
           <Search className="inline mr-3" />
-          <Search className="text-primary inline" />
+          <Search className="inline text-primary" />
         </div>
         <div>
           <ThumbsUp className="inline mr-3" />
-          <ThumbsUp className="text-primary inline" />
+          <ThumbsUp className="inline text-primary" />
         </div>
         <div>
           <ThumbsDown className="inline mr-3" />
-          <ThumbsDown className="text-primary inline" />
+          <ThumbsDown className="inline text-primary" />
         </div>
       </div>
 
-      <h3 className="text-lg font-semibold mb-3">Typo</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
-        <div className="max-w-5xl mx-auto p-4 space-y-10">
+      <h3 className="mb-3 text-lg font-semibold">Typo</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
+        <div className="max-w-5xl p-4 mx-auto space-y-10">
           <div>
-            <h4 className="text-md font-semibold mb-4">Components</h4>
-            <div className="max-w-5xl mx-auto p-4 space-y-10 bg-accent">
+            <h4 className="mb-4 font-semibold text-md">Components</h4>
+            <div className="max-w-5xl p-4 mx-auto space-y-10 bg-accent">
               <Title>Title Component</Title>
               <SubTitle>SubTitle Component</SubTitle>
               <ContentsTitle>ContentsTitle Component</ContentsTitle>
               <Contents>Contents Component</Contents>
             </div>
           </div>
-          <h4 className="text-md font-semibold mb-4">CSS styles</h4>
-          <div className="max-w-5xl mx-auto p-4 space-y-10 bg-accent">
+          <h4 className="mb-4 font-semibold text-md">CSS styles</h4>
+          <div className="max-w-5xl p-4 mx-auto space-y-10 bg-accent">
             <p className="title">title Class</p>
             <p className="sub-title">sub-title Class</p>
             <p className="contents-title">contents-title Class</p>
@@ -102,9 +102,9 @@ function BaseElementsTab() {
         </div>
       </div>
 
-      <h3 className="text-lg font-semibold mb-3">Color theme</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col items-center">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <h3 className="mb-3 text-lg font-semibold">Color theme</h3>
+      <div className="flex flex-col items-center w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {/* 컬러칩 + 이름 */}
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded bg-primary" />
@@ -147,7 +147,7 @@ function BaseElementsTab() {
             <p>text</p>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded bg-background border border-gray" />
+            <div className="w-10 h-10 border rounded bg-background border-gray" />
             <p>background</p>
           </div>
         </div>
@@ -162,12 +162,12 @@ function ButtonElementsTab() {
 
   return (
     <section className="p-6 space-y-6">
-      <h3 className="text-lg font-semibold mb-3">기본 버튼</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
-        <div className="max-w-5xl mx-auto p-4 space-y-10">
+      <h3 className="mb-3 text-lg font-semibold">기본 버튼</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
+        <div className="max-w-5xl p-4 mx-auto space-y-10">
           {sizes.map(size => (
             <div key={size}>
-              <h4 className="text-md font-semibold mb-4">{`Size: ${size}`}</h4>
+              <h4 className="mb-4 font-semibold text-md">{`Size: ${size}`}</h4>
               <div
                 className={`grid gap-4 ${
                   size === 'full' ? 'grid-cols-1' : size === 'large' ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-2 md:grid-cols-4'
@@ -183,8 +183,8 @@ function ButtonElementsTab() {
           ))}
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-3">찜하기 버튼</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col items-center">
+      <h3 className="mb-3 text-lg font-semibold">찜하기 버튼</h3>
+      <div className="flex flex-col items-center w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
         <button
           className={`${buttonBg} rounded-full w-6 h-6 text-white flex justify-center items-center cursor-pointer`}
           onClick={() => setLiked(!liked)}
@@ -192,8 +192,8 @@ function ButtonElementsTab() {
           <Star fill="#fff" size={16} />
         </button>
       </div>
-      <h3 className="text-lg font-semibold mb-3">사운드 토글 버튼</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">사운드 토글 버튼</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <SoundToggle />
       </div>
     </section>
@@ -236,8 +236,8 @@ function InputElementsTab() {
 
   return (
     <section className="p-6 space-y-6">
-      <h3 className="text-lg font-semibold mb-3">Input</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">Input</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
           <Input
             className="mb-3"
@@ -327,11 +327,11 @@ function InputElementsTab() {
           />
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-3">셀렉트 버튼</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">셀렉트 버튼</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
           <div className="mb-4">
-            <h2 className="font-semibold mb-2">Size: Medium</h2>
+            <h2 className="mb-2 font-semibold">Size: Medium</h2>
             <Select
               id="default"
               name="default"
@@ -343,7 +343,7 @@ function InputElementsTab() {
             />
           </div>
           <div className="mb-4">
-            <h2 className="font-semibold mb-2">Size: Small</h2>
+            <h2 className="mb-2 font-semibold">Size: Small</h2>
             <Select
               id="small"
               name="small"
@@ -356,7 +356,7 @@ function InputElementsTab() {
           </div>
 
           <div className="mb-4">
-            <h2 className="font-semibold mb-2">Disabled</h2>
+            <h2 className="mb-2 font-semibold">Disabled</h2>
             <Select
               id="disabled"
               name="disabled"
@@ -369,7 +369,7 @@ function InputElementsTab() {
           </div>
 
           <div className="mb-4">
-            <h2 className="font-semibold mb-2">Label 숨김 (showLabel=false)</h2>
+            <h2 className="mb-2 font-semibold">Label 숨김 (showLabel=false)</h2>
             <Select
               id="hiddenLabel"
               name="hiddenLabel"
@@ -382,7 +382,7 @@ function InputElementsTab() {
           </div>
 
           <div className="mb-4">
-            <h2 className="font-semibold mb-2">Placeholder 포함</h2>
+            <h2 className="mb-2 font-semibold">Placeholder 포함</h2>
             <Select
               id="withPlaceholder"
               name="withPlaceholder"
@@ -395,17 +395,17 @@ function InputElementsTab() {
           </div>
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-3">체크박스 버튼</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">체크박스 버튼</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
           <CheckboxButton className="mb-2"></CheckboxButton>
           <CheckboxButton checked></CheckboxButton>
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-3">라디오 버튼</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">라디오 버튼</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
-          <div className="payment-option mb-3 p-2 sm:p-3 cursor-pointer">
+          <div className="p-2 mb-3 cursor-pointer payment-option sm:p-3">
             <label className="flex items-center cursor-pointer">
               <input type="radio" name="simplePayment" value="toss" checked={true} onChange={() => {}} className="mr-2 sm:mr-3" />
               <div className="flex items-center">
@@ -420,7 +420,7 @@ function InputElementsTab() {
               </div>
             </label>
           </div>
-          <div className="payment-option mb-3 p-2 sm:p-3 cursor-pointer">
+          <div className="p-2 mb-3 cursor-pointer payment-option sm:p-3">
             <label className="flex items-center cursor-pointer">
               <input type="radio" name="simplePayment" value="naver" checked={false} onChange={() => {}} className="mr-2 sm:mr-3" />
               <div className="flex items-center">
@@ -437,8 +437,8 @@ function InputElementsTab() {
           </div>
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-3">Textarea</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">Textarea</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
           <Textarea id="textarea" name="textarea">
             AI 코딩 도구를 활용하면 코드 생성 및 자동화, 개발 워크플로우와의 통합 등이 가능하며 기존 개발 환경 대비 생산성을 높일 수 있습니다. 그러나
@@ -481,13 +481,13 @@ function InteractionElementsTab() {
 
   return (
     <div className="p-6 space-y-6">
-      <h3 className="text-lg font-semibold mb-3">Pagination</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">Pagination</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
           {/* 리스트 */}
           <ul className="grid gap-2">
             {currentItems.map((item, i) => (
-              <li key={i} className="p-2 border border-primary text-center">
+              <li key={i} className="p-2 text-center border border-primary">
                 {item}
               </li>
             ))}
@@ -495,14 +495,14 @@ function InteractionElementsTab() {
           <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-3">QuantityCounter</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">QuantityCounter</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
           <QuantityCount quantity={quantity} handleCountQuantity={handleCountQuantity} />
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-3">Tab</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">Tab</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
           <Tab
             tabItems={[
@@ -513,10 +513,10 @@ function InteractionElementsTab() {
           />
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-3">Modal</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">Modal</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
-          <p className="label-m text-darkgray mb-3">▼ 버튼을 눌러보세요!</p>
+          <p className="mb-3 label-m text-darkgray">▼ 버튼을 눌러보세요!</p>
           <Button onClick={handleOpen}>삭제하기</Button>
 
           <Modal isOpen={isOpen} handleClose={handleClose} handleConfirm={handleConfirm} title="삭제하기" description="정말 삭제하시겠습니까?" />
@@ -543,10 +543,10 @@ function CardElementsTab() {
   };
   return (
     <div className="p-6 space-y-6">
-      <h3 className="text-lg font-semibold mb-3">OrderCard</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">OrderCard</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
-          <OrderedCard
+          <OrderCard
             src={productProps.src}
             name={productProps.name}
             price={productProps.price}
@@ -555,17 +555,17 @@ function CardElementsTab() {
           />
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-3">ProductCard</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
+      <h3 className="mb-3 text-lg font-semibold">ProductCard</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
         <div className="max-w-5xl p-4">
           <div className="w-44">
             <ProductCard _id={productProps._id} imageSrc={productProps.src} title={productProps.name} price={productProps.price} />
           </div>
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-3">ReviewCard</h3>
-      <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-4 flex flex-col justify-evenly">
-        <div className="max-w-5xl p-4 rounded-lg  border border-lightgray">
+      <h3 className="mb-3 text-lg font-semibold">ReviewCard</h3>
+      <div className="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm justify-evenly">
+        <div className="max-w-5xl p-4 border rounded-lg border-lightgray">
           <ReviewCard
             name={reviewProps.name}
             createdAt={reviewProps.createdAt}
@@ -578,7 +578,7 @@ function CardElementsTab() {
             isEditing={false}
           />
         </div>
-        <div className="max-w-5xl p-4 rounded-lg  border border-lightgray">
+        <div className="max-w-5xl p-4 border rounded-lg border-lightgray">
           <ReviewCard
             name={reviewProps.name}
             createdAt={reviewProps.createdAt}
@@ -606,12 +606,12 @@ export default function ComponentPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white py-10">
-      <div className="container mx-auto px-4 py-6">
-        <h1 className="text-4xl font-bold text-center mb-2 text-gray-900">컴포넌트 프리뷰</h1>
-        <p className="text-gray-600 text-center">Hola!TAJA의 다양한 UI 컴포넌트들을 한눈에 확인해보세요!</p>
+    <div className="min-h-screen py-10 bg-white">
+      <div className="container px-4 py-6 mx-auto">
+        <h1 className="mb-2 text-4xl font-bold text-center text-gray-900">컴포넌트 프리뷰</h1>
+        <p className="text-center text-gray-600">Hola!TAJA의 다양한 UI 컴포넌트들을 한눈에 확인해보세요!</p>
       </div>
-      <div className="container mx-auto px-4 py-8 space-y-12">
+      <div className="container px-4 py-8 mx-auto space-y-12">
         <Tab tabItems={tabItems} defaultActiveTabId="base" />
       </div>
     </div>

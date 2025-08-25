@@ -1,10 +1,12 @@
-import getCartList from '@/data/functions/carts';
-import getProduct from '@/data/functions/product';
-import CheckOutForm from './CheckOutForm';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
-import { Title } from '@/components/Typography';
 import { Metadata } from 'next';
+
+import { Title } from '@/components/ui/Typography';
+import getCartList from '@/lib/api/carts';
+import getProduct from '@/lib/api/product';
+
+import CheckOutForm from './_components/CheckOutForm';
 
 export const metadata: Metadata = {
   title: '결제 - HOLATAJA',
@@ -104,14 +106,14 @@ export default async function CheckoutPage({ searchParams }: CheckoutPageProps) 
   if (!orderData || orderData.products.length === 0) {
     return (
       <div className="bg-white rounded-lg">
-        <div className="text-center py-12">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">결제할 상품이 없습니다</h2>
-          <p className="text-gray-600 mb-6">장바구니에 상품을 담거나 상품을 선택해주세요.</p>
+        <div className="py-12 text-center">
+          <h2 className="mb-4 text-xl font-bold text-gray-900">결제할 상품이 없습니다</h2>
+          <p className="mb-6 text-gray-600">장바구니에 상품을 담거나 상품을 선택해주세요.</p>
           <div className="space-x-4">
-            <Link href="/products" className="bg-primary text-white py-3 px-6 rounded-lg hover:bg-hover">
+            <Link href="/products" className="px-6 py-3 text-white rounded-lg bg-primary hover:bg-hover">
               상품 둘러보기
             </Link>
-            <Link href="/cart" className="bg-lightgray text-gray-800 py-3 px-6 rounded-lg hover:bg-gray-300">
+            <Link href="/cart" className="px-6 py-3 text-gray-800 rounded-lg bg-lightgray hover:bg-gray-300">
               장바구니 확인
             </Link>
           </div>

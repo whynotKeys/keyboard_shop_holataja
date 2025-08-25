@@ -1,8 +1,8 @@
 import NextAuth from 'next-auth'; // Importing the auth handler
 import Kakao from 'next-auth/providers/kakao';
 import Google from 'next-auth/providers/google'; // Importing the auth middleware
-import { createOAuthUserAction, loginWithOAuth } from '@/data/actions/auth';
-import { OAuthUser, User } from '@/types/user'; // Importing the user type
+import { createOAuthUserAction, loginWithOAuth } from '@/lib/actions/auth';
+import type { OAuthUser, User } from '@/types/user'; // Importing the user type
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   trustHost: true,

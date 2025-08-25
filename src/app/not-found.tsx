@@ -1,13 +1,13 @@
 'use client';
 
-import Button from '@/components/Button';
 import { useRouter } from 'next/navigation';
+import Button from '@/components/ui/Button';
 
 export default function Component() {
   const router = useRouter();
   return (
     <div className="flex items-center justify-center px-4">
-      <div className="w-full h-full text-center space-y-8 py-30">
+      <div className="w-full h-full space-y-8 text-center py-30">
         {/* ERROR 표시 */}
         <div className="flex justify-center gap-1 sm:gap-3">
           {['4', '0', '4'].map((letter, index) => (
@@ -24,7 +24,7 @@ export default function Component() {
           <h1 className="text-2xl font-bold text-gray-900">페이지를 찾을 수 없습니다.</h1>
 
           {/* Description */}
-          <p className="text-gray-600 text-sm leading-relaxed">
+          <p className="text-sm leading-relaxed text-gray-600">
             The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
           </p>
         </div>

@@ -1,8 +1,9 @@
-import './globals.css';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 import { Metadata } from 'next';
-// import { SessionProvider } from 'next-auth/react';
+
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
+
+import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://final-15-holataja.vercel.app/'),
@@ -93,7 +94,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // <SessionProvider>
     <html lang="ko" className="text-sm sm:text-base">
       <body className="flex flex-col min-h-screen bg-background">
         <Header />
@@ -101,6 +101,5 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-    // </SessionProvider>
   );
 }

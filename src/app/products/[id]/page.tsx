@@ -2,24 +2,25 @@ import React from 'react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import { QuestionItem } from '@/types/qna';
-import { getQuestion } from '@/data/functions/qna';
-import getReview from '@/data/functions/review';
-import getProduct from '@/data/functions/product';
-import { postReview } from '@/data/actions/review';
-import { postQuestion } from '@/data/actions/qna';
-
-import { ContentsTitle, SubTitle, Title } from '@/components/Typography';
-import Tab, { TabItem } from '@/components/Tab';
-import ProductImg from '@/components/ProductImg';
-import QnA from '@/components/QnA';
-import KeySoundDemo from '@/app/products/components/KeySoundDemo';
-
-import ProductPostForm from '@/app/products/[id]/ProductPostForm';
-import PostForm from '@/app/products/[id]/PostForm';
-import Review from '@/app/products/[id]/Review';
 import { KeyRound } from 'lucide-react';
-import { getOrderList } from '@/data/functions/order';
+
+import { ContentsTitle, SubTitle, Title } from '@/components/ui/Typography';
+import Tab, { TabItem } from '@/components/ui/Tab';
+import QnA from '@/features/qna/components/QnA';
+import ProductImg from '@/features/product/components/ProductImg';
+
+import { getOrderList } from '@/lib/api/order';
+import getProduct from '@/lib/api/product';
+import getReview from '@/lib/api/review';
+import { getQuestion } from '@/lib/api/qna';
+import { postQuestion } from '@/lib/actions/qna';
+import { postReview } from '@/lib/actions/review';
+import type { QuestionItem } from '@/types/qna';
+
+import ProductPostForm from './_components/ProductPostForm';
+import PostForm from './_components/PostForm';
+import KeySoundDemo from './_components/KeySoundDemo';
+import Review from './_components/Review';
 
 interface PageProps {
   params: Promise<{
@@ -72,14 +73,14 @@ export default async function ProductInfo({ params, searchParams }: PageProps) {
             <ul className="grid gap-2 sm:grid-cols-3 text-[14px]">
               {productData.ok &&
                 productData.item.extra['function-tag'].map((tag, idx) => (
-                  <li key={idx} className="flex items-center h-14 gap-3 p-4 font-medium bg-white border rounded-lg border-lightgray">
+                  <li key={idx} className="flex items-center gap-3 p-4 font-medium bg-white border rounded-lg h-14 border-lightgray">
                     <KeyRound />
                     <p>{tag}</p>
                   </li>
                 ))}
             </ul>
           </div>
-          <div className="rounded-lg bg-lightgray px-5 py-3 hidden sm:block">
+          <div className="hidden px-5 py-3 rounded-lg bg-lightgray sm:block">
             {productData.ok === 1 && (
               <KeySoundDemo
                 soundFilePath={productData.item?.extra?.soundfile ? productData.item?.extra?.soundfile : '/sounds/keyboardSound_sample.m4a'}
