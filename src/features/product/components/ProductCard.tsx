@@ -14,7 +14,7 @@ export default function ProductCard({ _id, imageSrc, title, price, bookmarkId }:
 
   return (
     <div className="w-full rounded">
-      <div className="relative w-full rounded-lg aspect-squre">
+      <div className="relative w-full rounded-lg aspect-square">
         <ProductImg title={title} srcList={[imageSrc]} productId={_id} bookmarkId={bookmarkId ? bookmarkId : 0} />
       </div>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 
 import { PackageX } from 'lucide-react';
 
@@ -10,6 +10,7 @@ import type { Product } from '@/types/product';
 
 import SearchBar from './SearchBar';
 import SortToggle from './SortToggle';
+import ProductCardSkeleton from '@/features/product/components/ProductCardSkeleton';
 
 export type sortType = '가나다순' | '최신순' | '가격 낮은순' | '가격 높은순';
 
@@ -50,14 +51,16 @@ export default function ProductList({ productData }: { productData: Product[] })
         {filtered.length ? (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 min-h-[40vh]">
             {filtered.map((product, index) => (
-              <ProductCard
-                key={index}
-                _id={product._id}
-                imageSrc={product.imgSrc}
-                title={product.name}
-                price={product.price}
-                bookmarkId={product.bookmarkId}
-              />
+              <Suspense key={index} fallback={<ProductCardSkeleton />}>
+                <ProductCard
+                  key={index}
+                  _id={product._id}
+                  imageSrc={product.imgSrc}
+                  title={product.name}
+                  price={product.price}
+                  bookmarkId={product.bookmarkId}
+                />
+              </Suspense>
             ))}
           </div>
         ) : (
