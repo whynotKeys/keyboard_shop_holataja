@@ -22,3 +22,11 @@
 - **네이밍 개선**
   - `OrderdCard.tsx` → `OrderCard.tsx` 등 오탈자 수정
   - 스토어 파일명/위치를 도메인 기반으로 변경 (`authStore.ts` → `features/auth/store.ts`)
+
+### 2025/08/29
+- **메인 화면 Skeleton UI 적용**
+  - Tailwind animate-pulse를 사용해서 직접 만든 **custom 버전**과 react-loading-skeleton 라이브러리 사용해서 만든 **lib 버전** 각각 구현 후 비교
+  - 가독성·디자인 일관성 측면에서 react-loading-skeleton **lib 버전** 최종 채택
+- **개발용 지연 유틸 추가**
+  - `lib/dev/delay.ts`: 개발 환경에서 의도적으로 응답 지연을 주는 모듈 // 스켈레톤 UI 테스트 시 사용
+
