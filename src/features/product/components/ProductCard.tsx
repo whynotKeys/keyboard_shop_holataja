@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import ProductImg from './ProductImg';
 
-import { devDelay } from '@/lib/dev/delay';
-
 interface ProductCardProps {
   _id: number;
   imageSrc: string;
@@ -11,8 +9,7 @@ interface ProductCardProps {
   bookmarkId?: number;
 }
 
-export default async function ProductCard({ _id, imageSrc, title, price, bookmarkId }: ProductCardProps) {
-  await devDelay(1000);
+export default function ProductCard({ _id, imageSrc, title, price, bookmarkId }: ProductCardProps) {
   const formatPrice = price.toLocaleString();
 
   return (
