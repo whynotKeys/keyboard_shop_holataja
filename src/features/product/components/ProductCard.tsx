@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import ProductImg from './ProductImg';
 
+import { devDelay } from '@/lib/dev/delay';
+
 interface ProductCardProps {
   _id: number;
   imageSrc: string;
@@ -9,12 +11,13 @@ interface ProductCardProps {
   bookmarkId?: number;
 }
 
-export default function ProductCard({ _id, imageSrc, title, price, bookmarkId }: ProductCardProps) {
+export default async function ProductCard({ _id, imageSrc, title, price, bookmarkId }: ProductCardProps) {
+  await devDelay(1000);
   const formatPrice = price.toLocaleString();
 
   return (
     <div className="w-full rounded">
-      <div className="relative w-full rounded-lg aspect-squre">
+      <div className="relative w-full rounded-lg aspect-square">
         <ProductImg title={title} srcList={[imageSrc]} productId={_id} bookmarkId={bookmarkId ? bookmarkId : 0} />
       </div>
 
