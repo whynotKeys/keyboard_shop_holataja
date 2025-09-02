@@ -21,6 +21,7 @@ import ProductPostForm from './_components/ProductPostForm';
 import PostForm from './_components/PostForm';
 import KeySoundDemo from './_components/KeySoundDemo';
 import Review from './_components/Review';
+import RecentViewedTracker from './_components/recentViewedTracker';
 
 interface PageProps {
   params: Promise<{
@@ -57,7 +58,6 @@ export default async function ProductInfo({ params, searchParams }: PageProps) {
 
   // 해당 상품이 포함된 구매 내역 id 가져오기
   const orderId = orderList.ok ? orderList.item.find(order => order.products.some(product => product._id === Number(id)))?._id : 0;
-
   const tabItems: TabItem[] = [
     {
       id: '1',
@@ -139,6 +139,14 @@ export default async function ProductInfo({ params, searchParams }: PageProps) {
           </div>
           <ProductPostForm productData={productData} />
         </div>
+        <RecentViewedTracker
+          id={productData.item._id}
+          src={productData.item.mainImages[0].path}
+          name={productData.item.name}
+          price={productData.item.price}
+          bookmarkId={productData.item.myBookmarkId}
+          summary={productData.item.extra.summary}
+        />
       </div>
       <Tab tabItems={tabItems} defaultActiveTabId={activeTabId} />
     </div>

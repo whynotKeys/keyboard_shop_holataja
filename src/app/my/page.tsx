@@ -10,6 +10,7 @@ import OrderTab from './_components/OrderTab';
 import QnATab from './_components/QnATab';
 import ReviewTab from './_components/ReviewTab';
 import UserInfo from './_components/UserInfo';
+import RecentViewTab from './_components/RecentViewTab';
 
 export const metadata: Metadata = {
   title: '마이페이지 - HOLATAJA',
@@ -30,6 +31,7 @@ export default async function MyPage() {
     { id: 'info', title: '회원 정보', content: <UserInfo /> },
     { id: 'orders', title: '구매 내역', content: <OrderTab orderHistoryList={orderHistoryList} /> },
     { id: 'bookmarks', title: '찜 목록', content: <BookmarkTab bookmarkList={bookmarkList} /> },
+    { id: 'recentview', title: '최근 본 상품', content: <RecentViewTab /> },
     { id: 'reviews', title: '나의 구매 후기', content: <ReviewTab /> },
     { id: 'qna', title: '나의 Q&A', content: <QnATab /> },
   ];
