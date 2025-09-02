@@ -7,16 +7,18 @@ export interface BookmarkCardProps {
   name: string;
   price: number;
   bookmarkId: number;
+  summary: string;
 }
 
-export default function BookmarkCard({ id, src, name, price, bookmarkId }: BookmarkCardProps) {
+export default function BookmarkCard({ id, src, name, price, bookmarkId, summary }: BookmarkCardProps) {
   return (
     <div className="flex flex-col justify-between px-4 py-4 border-b sm:flex-row sm:items-center sm:gap-6 min-w-80 border-lightgray">
       <div className="flex flex-row justify-between w-full">
         {/* Product info */}
         <section className="flex items-center flex-grow">
           <Link href={`./products/${id}`}>
-            <span className="block font-bold leading-snug label-m sm:label-l line-clamp-2"> {name}</span>
+            <span className="block font-bold leading-snug label-l sm:label-xl line-clamp-2"> {name}</span>
+            <span className="block leading-snug text-darkgray label-m sm:label-l line-clamp-2"> {summary}</span>
             <span className="block mt-2 mb-1 font-semibold text-text text-l">{price.toLocaleString()}원</span>
           </Link>
         </section>

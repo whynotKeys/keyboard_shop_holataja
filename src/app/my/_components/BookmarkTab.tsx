@@ -39,6 +39,7 @@ export default function BookmarkTab({ bookmarkList }: BookmarkTabProps) {
               src={item.product.mainImages?.[0]?.path ? `${item.product.mainImages[0].path}` : '/product_images/holataja_circle.webp'}
               name={item.product.name}
               price={item.product.price}
+              summary={item.product.extra.summary}
             />
           ))
         )}

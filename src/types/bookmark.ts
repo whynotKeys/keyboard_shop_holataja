@@ -19,6 +19,7 @@ export interface BookmarkItemData {
       category: string;
       option: string[];
       description: string;
+      summary: string;
       'function-tag': string;
       'soundfile-path': string;
     };
