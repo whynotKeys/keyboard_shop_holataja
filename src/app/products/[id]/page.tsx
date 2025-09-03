@@ -22,6 +22,7 @@ import PostForm from './_components/PostForm';
 import KeySoundDemo from './_components/KeySoundDemo';
 import Review from './_components/Review';
 import RecentViewedTracker from './_components/recentViewedTracker';
+import RecentViewFloat from '@/features/recent-view/components/RecentViewFloat';
 
 interface PageProps {
   params: Promise<{
@@ -149,6 +150,8 @@ export default async function ProductInfo({ params, searchParams }: PageProps) {
         />
       </div>
       <Tab tabItems={tabItems} defaultActiveTabId={activeTabId} />
+
+      <RecentViewFloat />
     </div>
   );
 }

@@ -11,6 +11,7 @@ import QnATab from './_components/QnATab';
 import ReviewTab from './_components/ReviewTab';
 import UserInfo from './_components/UserInfo';
 import RecentViewTab from './_components/RecentViewTab';
+import RecentViewFloat from '@/features/recent-view/components/RecentViewFloat';
 
 export const metadata: Metadata = {
   title: '마이페이지 - HOLATAJA',
@@ -40,6 +41,7 @@ export default async function MyPage() {
     <>
       <Title className="mb-6">마이 페이지</Title>
       <Tab tabItems={tabItems} defaultActiveTabId={'info'} />
+      <RecentViewFloat />
     </>
   );
 }
