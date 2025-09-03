@@ -20,10 +20,10 @@ export default function RecentViewFloat() {
         <section className="flex flex-col gap-3">
           {recentViewList?.map((product, index) => (
             <div key={index} className="relative overflow-hidden border aspect-square border-gray">
-              <Link href={`./products/${product.id}`} className="relative block w-full h-full">
+              <Link href={`/products/${product.id}`} className="relative block w-full h-full">
                 <Image
                   src={product.src}
-                  alt={product.name + '이미지'}
+                  alt={product.name + '페이지 바로가기'}
                   fill
                   className="object-cover transition-transform duration-300 ease-in-out hover:brightness-90"
                   sizes="(min-width: 100px) 100vw, 100vw"
