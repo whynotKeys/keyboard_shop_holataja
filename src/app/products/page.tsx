@@ -1,7 +1,7 @@
 import { Title } from '@/components/ui/Typography';
+import RecentViewFloat from '@/features/recent-view/components/RecentViewFloat';
 import { getProductList } from '@/lib/api/product';
 import type { Product } from '@/types/product';
-import RecentViewFloat from '@/features/recent-view/components/RecentViewFloat';
 
 import Carousel from './_components/Carousel';
 import ProductList from './_components/ProductList';

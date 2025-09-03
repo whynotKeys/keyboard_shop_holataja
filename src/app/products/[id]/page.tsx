@@ -8,6 +8,7 @@ import { ContentsTitle, SubTitle, Title } from '@/components/ui/Typography';
 import Tab, { TabItem } from '@/components/ui/Tab';
 import QnA from '@/features/qna/components/QnA';
 import ProductImg from '@/features/product/components/ProductImg';
+import RecentViewFloat from '@/features/recent-view/components/RecentViewFloat';
 
 import { getOrderList } from '@/lib/api/order';
 import getProduct from '@/lib/api/product';
@@ -22,7 +23,6 @@ import PostForm from './_components/PostForm';
 import KeySoundDemo from './_components/KeySoundDemo';
 import Review from './_components/Review';
 import RecentViewedTracker from './_components/recentViewedTracker';
-import RecentViewFloat from '@/features/recent-view/components/RecentViewFloat';
 
 interface PageProps {
   params: Promise<{
