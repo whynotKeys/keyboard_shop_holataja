@@ -26,7 +26,30 @@
 ### 2025/08/29
 - **메인 화면 Skeleton UI 적용**
   - Tailwind animate-pulse를 사용해서 직접 만든 **custom 버전**과 react-loading-skeleton 라이브러리 사용해서 만든 **lib 버전** 각각 구현 후 비교
+    - custom 버전
+      ![custom](https://github.com/user-attachments/assets/f6271246-271b-453f-b66d-3287f4955582)
+    - lib 버전
+      ![lib](https://github.com/user-attachments/assets/498dd16c-e926-4657-8c00-1dc60008307d)
   - 가독성·디자인 일관성 측면에서 react-loading-skeleton **lib 버전** 최종 채택
 - **개발용 지연 유틸 추가**
   - `lib/dev/delay.ts`: 개발 환경에서 의도적으로 응답 지연을 주는 모듈 // 스켈레톤 UI 테스트 시 사용
+
+### 2025/09/02
+- **북마크 리스트에 summary(상품 간단 설명) 추가**
+  - type.ts/BookmarkCard.tsx/BookmarkTab.tsx 업데이트
+
+### 2025/09/03
+- **최근 본 상품(Recent View) 기능 추가**
+  - LocalStorage 저장/조회하는 유틸 구현(`lib/utils/recentView.ts`)
+    - 사용자가 조회한 상품 정보를 LS에 저장/조회
+    - 최대 5개 유지, 중복 상품 정보 조회 시 최신으로 당김(timestamp 순)
+  - 서버 컴포넌트에서의 사용 관리
+    - `products/[id]/page.tsx`(server)에서 저장할 수 있도록 `RecentViewedTracker`(client) 삽입
+    - 마운트 후에만 LS 접근하도록 하여 SSR/하이드레이션 불일치 방지
+  - 최근 본 상품 Float Component 구현
+    - 적용 페이지: 상품 목록/상품 상세/마이페이지/장바구니
+    - 화면 폭 1280px이상에서만 표시(모바일은 My페이지에서 확인)
+  - My페이지
+    - '최근 본 상품' 탭 추가
+    - 기존 북마크 카드 컴포넌트 재사용
 
