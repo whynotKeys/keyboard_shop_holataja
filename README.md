@@ -26,11 +26,11 @@
 ### 2025/08/29
 - **메인 화면 Skeleton UI 적용**
   - Tailwind animate-pulse를 사용해서 직접 만든 **custom 버전**과 react-loading-skeleton 라이브러리 사용해서 만든 **lib 버전** 각각 구현 후 비교
-    - custom 버전
-      ![custom](https://github.com/user-attachments/assets/f6271246-271b-453f-b66d-3287f4955582)
-    - lib 버전
-      ![lib](https://github.com/user-attachments/assets/498dd16c-e926-4657-8c00-1dc60008307d)
-  - 가독성·디자인 일관성 측면에서 react-loading-skeleton **lib 버전** 최종 채택
+    - custom 버전  
+      ![custom](https://github.com/user-attachments/assets/b0d577d3-d54d-459a-9f78-66910c5e8524)
+    - lib 버전  
+      ![lib](https://github.com/user-attachments/assets/36f5e7c7-cc47-4c48-aad6-aded58a2db56)
+  - 코드 가독성·디자인 일관성 측면에서 react-loading-skeleton **lib 버전** 최종 채택
 - **개발용 지연 유틸 추가**
   - `lib/dev/delay.ts`: 개발 환경에서 의도적으로 응답 지연을 주는 모듈 // 스켈레톤 UI 테스트 시 사용
 
