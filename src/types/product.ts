@@ -32,6 +32,7 @@ export interface ProductInfo {
     category: 'BLUE' | 'BROWN' | 'RED' | 'OTHER';
     option: string[];
     description: string;
+    summary: string;
     'function-tag': string[];
     soundfile: string;
   };

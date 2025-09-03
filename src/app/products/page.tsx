@@ -1,4 +1,5 @@
 import { Title } from '@/components/ui/Typography';
+import RecentViewFloat from '@/features/recent-view/components/RecentViewFloat';
 import { getProductList } from '@/lib/api/product';
 import type { Product } from '@/types/product';
 
@@ -32,6 +33,7 @@ export default async function ProductPage() {
         <Title className="mb-6">상품 목록</Title>
         <ProductList productData={productList} />
       </section>
+      <RecentViewFloat />
     </>
   );
 }

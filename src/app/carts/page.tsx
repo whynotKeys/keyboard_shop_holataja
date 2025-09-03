@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 
 import getCartList from '@/lib/api/carts';
+import RecentViewFloat from '@/features/recent-view/components/RecentViewFloat';
 import type { CartResponse } from '@/types/cart';
 
 import CartContainer from './_components/CartContainer';
@@ -65,5 +66,10 @@ export default async function CartPage() {
    * - serverError: 서버에서 발생한 에러 (있는 경우)
    */
 
-  return <CartContainer initialData={initialCartData} token={token} serverError={serverError} />;
+  return (
+    <>
+      <CartContainer initialData={initialCartData} token={token} serverError={serverError} />
+      <RecentViewFloat />
+    </>
+  );
 }
