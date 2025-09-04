@@ -161,7 +161,7 @@ export default function CartContainer({ initialData, token, serverError }: CartC
   // 클라이언트 하이드레이션이 완료되지 않았으면 로딩 표시
   if (!isClient) {
     return (
-      <div className="min-h-screen">
+      <div className="h-100">
         <div>
           <Title className="mb-6">장바구니</Title>
           <div className="p-8 text-center bg-white rounded-lg">
@@ -178,7 +178,7 @@ export default function CartContainer({ initialData, token, serverError }: CartC
   /** 토큰이 없는 경우 (로그인 필요) */
   if (!token) {
     return (
-      <div className="min-h-screen">
+      <div className="h-100">
         <div>
           <Title className="mb-6">장바구니</Title>
           <div className="p-8 text-center bg-white rounded-lg">
@@ -202,7 +202,7 @@ export default function CartContainer({ initialData, token, serverError }: CartC
   /** 장바구니가 비어있는 경우 */
   if (!cartData || cartData.ok !== 1 || !cartData.item || cartData.item.length === 0) {
     return (
-      <div className="min-h-screen">
+      <div className="h-100">
         <div>
           <Title className="mb-6">장바구니</Title>
           <div className="p-8 text-center bg-white rounded-lg">
@@ -223,57 +223,55 @@ export default function CartContainer({ initialData, token, serverError }: CartC
   // ==================== 메인 렌더링 ====================
 
   return (
-    <div className="min-h-screen">
-      <div>
-        {/* 페이지 제목 */}
-        <Title className="mb-6">장바구니</Title>
+    <div>
+      {/* 페이지 제목 */}
+      <Title className="mb-6">장바구니</Title>
 
-        {/* 에러 메시지 표시 */}
-        {error && (
-          <div className="p-4 mb-6 border rounded-lg bg-accent border-lightgray">
-            <div className="flex items-center justify-between">
-              <p className="text-sm text-negative">{error}</p>
-              <button onClick={() => setError(null)} className="text-sm underline text-negative hover:no-underline">
-                닫기
-              </button>
-            </div>
+      {/* 에러 메시지 표시 */}
+      {error && (
+        <div className="p-4 mb-6 border rounded-lg bg-accent border-lightgray">
+          <div className="flex items-center justify-between">
+            <p className="text-sm text-negative">{error}</p>
+            <button onClick={() => setError(null)} className="text-sm underline text-negative hover:no-underline">
+              닫기
+            </button>
           </div>
-        )}
-
-        {/* 메인 콘텐츠 */}
-        <div className="space-y-6">
-          {/* 장바구니 아이템 목록 */}
-          <div className="p-4 bg-white border rounded-lg border-lightgray sm:p-6">
-            {/* 상품 목록 헤더 */}
-            <div className="flex items-center justify-between pb-3 border-b border-lightgray">
-              <h3 className="text-lg font-bold text-text">선택상품 ({cartData.item.length}개)</h3>
-            </div>
-
-            {/* 상품 카드 목록 */}
-            <div className="space-y-0">
-              {cartData.item.map(item => (
-                <CartProductCard
-                  key={item._id}
-                  item={item}
-                  token={token}
-                  handleRemoveItem={handleRemoveItem}
-                  // 로딩 상태
-                  isDeleting={isActionLoading}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* 주문 요약 */}
-          <CartSummary
-            cost={cartData?.cost}
-            itemCount={cartData.item.length}
-            onOrderClick={handleOrderClick}
-            onContinueShoppingClick={handleContinueShopping}
-            isLoading={isActionLoading}
-            isOrderDisabled={cartData.item.length === 0}
-          />
         </div>
+      )}
+
+      {/* 메인 콘텐츠 */}
+      <div className="space-y-6">
+        {/* 장바구니 아이템 목록 */}
+        <div className="p-4 bg-white border rounded-lg border-lightgray sm:p-6">
+          {/* 상품 목록 헤더 */}
+          <div className="flex items-center justify-between pb-3 border-b border-lightgray">
+            <h3 className="text-lg font-bold text-text">선택상품 ({cartData.item.length}개)</h3>
+          </div>
+
+          {/* 상품 카드 목록 */}
+          <div className="space-y-0">
+            {cartData.item.map(item => (
+              <CartProductCard
+                key={item._id}
+                item={item}
+                token={token}
+                handleRemoveItem={handleRemoveItem}
+                // 로딩 상태
+                isDeleting={isActionLoading}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* 주문 요약 */}
+        <CartSummary
+          cost={cartData?.cost}
+          itemCount={cartData.item.length}
+          onOrderClick={handleOrderClick}
+          onContinueShoppingClick={handleContinueShopping}
+          isLoading={isActionLoading}
+          isOrderDisabled={cartData.item.length === 0}
+        />
       </div>
     </div>
   );
